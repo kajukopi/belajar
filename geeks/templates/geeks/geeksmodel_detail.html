@@ -1,0 +1,28 @@
+{% extends 'geeks/base.html' %}
+{% block bread %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'list' %}">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link disabled" tabindex="-1" aria-disabled="true">{{ object.title }}</a>
+</li>
+{% endblock %}
+{% block content%}
+<br>
+<div class="card ">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title"><h1>{{ object.title }}</h1></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ object.title }}</h6>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ object.description }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'delete' object.id %}" class="btn btn-primary">Delete</a>
+            <a href="{% url 'update' object.id %}" class="btn btn-primary">Update</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

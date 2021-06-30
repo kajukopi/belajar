@@ -1,0 +1,30 @@
+{% extends 'geeks/base.html' %}
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">List</li>
+{% endblock %}
+
+{% block content%}
+<br>
+    <div class="row g-1">
+        {% for object in object_list %}
+        <div class="col-6">
+            <div class="border bg-light card">
+                <div class="card-header">
+                    <h1>
+                        {{ object.title }}
+                    </h1>
+                </div>
+                <div class="card-body">
+                    {{ object.description }}
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'detail' object.id %}" class="btn btn-primary">Baca selanjutnya</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <li>No objects yet.</li>
+        {% endfor %}
+    </div>
+
+{% endblock %}
